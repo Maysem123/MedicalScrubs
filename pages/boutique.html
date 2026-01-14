@@ -21,7 +21,7 @@
     <header class="header" id="header">
         <div class="header__container">
             <a href="../index.html" class="header__logo">
-                <img src="../assets/images/logo/logo.jpg" alt="myhygia Logo">
+                <img src="../assets/images/logo/logo.jpg" alt="myhygia Logo" decoding="async">
                 <span class="header__logo-text">myhygia</span>
             </a>
             
@@ -178,7 +178,7 @@
             card.innerHTML = `
                 <div class="product-card__image">
                     <a href="produit.html?id=${product.id}">
-                        <img src="${basePath}${product.image}" alt="${product.name}" loading="lazy">
+                        <img src="${basePath}${product.image}" alt="${product.name}" loading="lazy" decoding="async">
                     </a>
                     ${product.badge ? `<span class="product-card__badge ${badgeClass}">${product.badge}</span>` : ''}
                 </div>

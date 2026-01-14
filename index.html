@@ -6,6 +6,9 @@
     <meta name="description" content="myhygia - Votre spécialiste en calots et bonnets médicaux de qualité pour les professionnels de santé. Livraison rapide en Tunisie.">
     <meta name="keywords" content="calots médicaux, bonnets médicaux, tenue médicale, infirmière, personnel de santé, Tunisie">
     <title>myhygia - Calots & Bonnets Médicaux de Qualité</title>
+
+    <!-- Preload above-the-fold hero image -->
+    <link rel="preload" as="image" href="assets/images/calots/calot-1.jpeg">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/variables.css">
@@ -22,7 +25,7 @@
     <header class="header" id="header">
         <div class="header__container">
             <a href="index.html" class="header__logo">
-                <img src="assets/images/logo/logo.jpg" alt="myhygia Logo">
+                <img src="assets/images/logo/logo.jpg" alt="myhygia Logo" decoding="async">
                 <span class="header__logo-text">myhygia</span>
             </a>
             
@@ -90,7 +93,7 @@
                     </div>
                 </div>
                 <div class="hero__image">
-                    <img src="assets/images/calots/calot-1.jpeg" alt="Calot médical élégant" class="hero__image-main">
+                    <img src="assets/images/calots/calot-1.jpeg" alt="Calot médical élégant" class="hero__image-main" fetchpriority="high" decoding="async">
                 </div>
             </div>
         </section>
@@ -99,7 +102,7 @@
         <section class="about-section" id="about">
             <div class="about__container">
                 <div class="about__image">
-                    <img src="assets/images/calots/calot-2.jpeg" alt="Collection de calots médicaux">
+                    <img src="assets/images/calots/calot-2.jpeg" alt="Collection de calots médicaux" loading="lazy" decoding="async">
                 </div>
                 <div class="about__content">
                     <span class="about__subtitle">À propos de nous</span>
@@ -246,7 +249,7 @@
             card.innerHTML = `
                 <div class="product-card__image">
                     <a href="${basePath}pages/produit.html?id=${product.id}">
-                        <img src="${basePath}${product.image}" alt="${product.name}" loading="lazy">
+                        <img src="${basePath}${product.image}" alt="${product.name}" loading="lazy" decoding="async">
                     </a>
                     ${product.badge ? `<span class="product-card__badge ${badgeClass}">${product.badge}</span>` : ''}
                 </div>

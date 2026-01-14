@@ -1,0 +1,19 @@
+# Cache rules for Netlify
+
+# HTML: always revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/pages/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS/JS: cache for a week (filenames are not hashed)
+/css/*
+  Cache-Control: public, max-age=604800
+
+/js/*
+  Cache-Control: public, max-age=604800
+
+# Images: cache for a year (rarely change)
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable

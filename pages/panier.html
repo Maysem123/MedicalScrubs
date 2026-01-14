@@ -21,7 +21,7 @@
     <header class="header" id="header">
         <div class="header__container">
             <a href="../index.html" class="header__logo">
-                <img src="../assets/images/logo/logo.jpg" alt="myhygia Logo">
+                <img src="../assets/images/logo/logo.jpg" alt="myhygia Logo" decoding="async">
                 <span class="header__logo-text">myhygia</span>
             </a>
             
@@ -157,7 +157,7 @@
                 <div class="cart__items">
                     ${cart.map(item => `
                         <div class="cart-item" data-id="${item.id}">
-                            <img src="../${item.image}" alt="${item.name}" class="cart-item__image">
+                            <img src="../${item.image}" alt="${item.name}" class="cart-item__image" loading="lazy" decoding="async">
                             <div class="cart-item__info">
                                 <h3>${item.name}</h3>
                                 <span class="cart-item__price">${item.price} DT</span>
