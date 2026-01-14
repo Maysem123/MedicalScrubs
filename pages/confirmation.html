@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Confirmation de commande - myhygia">
+    <title>Commande Confirmée - myhygia</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../assets/images/logo/logo.jpg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="../index.html" class="header__logo">
+                <img src="../assets/images/logo/logo.jpg" alt="myhygia Logo">
+                <span class="header__logo-text">myhygia</span>
+            </a>
+            
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="../index.html" class="nav__link">Accueil</a></li>
+                    <li><a href="boutique.html" class="nav__link">Boutique</a></li>
+                    <li><a href="../index.html#about" class="nav__link">À propos</a></li>
+                    <li><a href="../index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+                <a href="panier.html" class="cart-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
+                    <span>Panier</span>
+                    <span class="cart-badge" style="display: none;">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="confirmation-page">
+        <div class="confirmation__container">
+            <div class="confirmation__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            
+            <h1 class="confirmation__title">Commande Confirmée !</h1>
+            <p class="confirmation__message">
+                Merci pour votre commande. Nous vous contacterons très bientôt pour confirmer les détails de livraison.
+            </p>
+            
+            <div class="confirmation__details" id="order-details">
+                <!-- Order details will be loaded by JavaScript -->
+            </div>
+            
+            <a href="boutique.html" class="btn btn-primary confirmation__btn">
+                Continuer mes achats
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__section footer__about">
+                <h3>myhygia</h3>
+                <p>
+                    Votre spécialiste en calots et bonnets médicaux de qualité. 
+                    Nous accompagnons les professionnels de santé au quotidien.
+                </p>
+            </div>
+            
+            <div class="footer__section">
+                <h3>Liens Rapides</h3>
+                <div class="footer__links">
+                    <a href="../index.html" class="footer__link">Accueil</a>
+                    <a href="boutique.html" class="footer__link">Boutique</a>
+                    <a href="../index.html#about" class="footer__link">À propos</a>
+                    <a href="panier.html" class="footer__link">Panier</a>
+                </div>
+            </div>
+            
+            <div class="footer__section">
+                <h3>Contact</h3>
+                <div class="footer__contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span>+216 96 025 340</span>
+                </div>
+                <div class="footer__contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>contact@myhygia.ma</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer__bottom">
+            <p>&copy; 2026 myhygia. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/products.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderData = localStorage.getItem('lastOrder');
+            
+            if (!orderData) {
+                window.location.href = 'boutique.html';
+                return;
+            }
+            
+            const order = JSON.parse(orderData);
+            const detailsContainer = document.getElementById('order-details');
+            
+            detailsContainer.innerHTML = `
+                <h3>Détails de la commande</h3>
+                <p><strong>Numéro de commande :</strong> ${order.orderNumber}</p>
+                <p><strong>Nom :</strong> ${order.customer.firstName} ${order.customer.lastName}</p>
+                <p><strong>Email :</strong> ${order.customer.email}</p>
+                <p><strong>Téléphone :</strong> ${order.customer.phone}</p>
+                <p><strong>Adresse :</strong> ${order.customer.address}, ${order.customer.city}</p>
+                <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--light-gray);">
+                <p><strong>Articles :</strong></p>
+                <ul style="margin-left: 1rem; margin-bottom: 1rem;">
+                    ${order.items.map(item => `<li>${item.name} x${item.quantity} - ${item.price * item.quantity} DT</li>`).join('')}
+                </ul>
+                <p><strong>Sous-total :</strong> ${order.subtotal} DT</p>
+                <p><strong>Livraison :</strong> ${order.shipping === 0 ? 'Gratuite' : order.shipping + ' DT'}</p>
+                <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary);"><strong>Total :</strong> ${order.total} DT</p>
+            `;
+            
+            // Clear the stored order after display
+            // localStorage.removeItem('lastOrder');
+        });
+    </script>
+</body>
+</html>
