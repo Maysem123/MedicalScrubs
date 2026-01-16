@@ -1,0 +1,16 @@
+{
+  "name": "medicalscrubs",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000M\u0000e\u0000d\u0000i\u0000c\u0000a\u0000l\u0000S\u0000c\u0000r\u0000u\u0000b\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}
